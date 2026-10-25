@@ -67,6 +67,12 @@ The build has no warnings when it is healthy. `npm run check` exits non-zero on 
 
 The footer's LinkedIn link is the LinkedIn "in" mark, inline in `src/index.njk`: the `linkedin` path from Simple Icons (CC0), drawn in the muted text colour and brightened on hover. The trademark stays LinkedIn's.
 
+### Link previews
+
+WhatsApp, LinkedIn, Slack, iMessage and X build a link's preview from its Open Graph tags. The home page uses `src/images/home/terminus-foundry-card.png`: 1200 x 630, the white wordmark centred on the page background, so a square crop still shows all of it. `npm run social-card` renders it from the wordmark SVG with sharp; the output is committed. The guide pages use their cover image, or the post's feature image. Every page also sets `twitter:card` to `summary_large_image`.
+
+Apps cache a preview per URL, often for days. To see a change, check the tags in a preview debugger such as LinkedIn's Post Inspector, which also refreshes LinkedIn's cache.
+
 ### Fonts
 
 Poppins loads with `font-display: optional`, and the home and guide layouts preload the Regular and SemiBold files. The text never swaps fonts: Poppins shows from the first paint, or, on a slow first visit, the fallback stays for that page. The fonts are WOFF2, about 51 KB each, converted on 2026-10-25 from the brand's Poppins TTF files (about 160 KB each) with fonttools 4.67.0 and no subsetting. To convert again: `python3 -c "from fontTools.ttLib import TTFont; f = TTFont('Poppins-Regular.ttf'); f.flavor = 'woff2'; f.save('Poppins-Regular.woff2')"` with `fonttools` and `brotli` installed.
