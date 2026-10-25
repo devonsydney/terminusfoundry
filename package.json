@@ -9,7 +9,8 @@
     "serve": "eleventy --serve",
     "check": "python3 scripts/check-content.py && bash scripts/check-output.sh",
     "redirects": "node scripts/build-redirects.mjs",
-    "favicons": "node scripts/favicons.mjs"
+    "favicons": "node scripts/favicons.mjs",
+    "social-card": "node scripts/social-card.mjs"
   },
   "license": "UNLICENSED",
   "devDependencies": {
