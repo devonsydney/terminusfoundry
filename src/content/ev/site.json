@@ -1,0 +1,99 @@
+{
+ "site": "ev",
+ "title": "Electric Vehicles",
+ "description": "The Ultimate Guide",
+ "accent_color": "#41c897",
+ "navigation": [
+  {
+   "label": "Home",
+   "url": "/"
+  },
+  {
+   "label": "About",
+   "url": "/about/"
+  },
+  {
+   "label": "Author",
+   "url": "/author/devon/"
+  }
+ ],
+ "secondary_navigation": [
+  {
+   "label": "Contact",
+   "url": "/contact/"
+  },
+  {
+   "label": "TF",
+   "url": "/tf/"
+  },
+  {
+   "label": "Contribute →",
+   "url": "/contribute/"
+  }
+ ],
+ "cover_image": "/images/ev/2021/04/israel-palacio-ImcUkZ72oUs-unsplash-4.jpg",
+ "icon": "/images/ev/2021/04/publication_icon.png",
+ "logo": "/images/ev/2021/04/TF-ID-Lockup-Reverse-1.png",
+ "meta_title": "Electric Vehicles - The Ultimate Guide",
+ "meta_description": "The ultimate guide to electric vehicles, ever. We look at what they are, their technology, why electric, the history and politics, and industry players.",
+ "timezone": "America/Los_Angeles",
+ "lang": "en",
+ "tags": [
+  {
+   "slug": "electric-vehicles",
+   "name": "Electric Vehicles",
+   "description": null,
+   "visibility": "public"
+  },
+  {
+   "slug": "sustainable-energy",
+   "name": "Sustainable Energy",
+   "description": null,
+   "visibility": "public"
+  },
+  {
+   "slug": "climate-change",
+   "name": "Climate Change",
+   "description": null,
+   "visibility": "public"
+  },
+  {
+   "slug": "transportation",
+   "name": "Transportation",
+   "description": null,
+   "visibility": "public"
+  },
+  {
+   "slug": "economics",
+   "name": "Economics",
+   "description": null,
+   "visibility": "public"
+  },
+  {
+   "slug": "performance",
+   "name": "Performance",
+   "description": null,
+   "visibility": "public"
+  },
+  {
+   "slug": "safety",
+   "name": "Safety",
+   "description": null,
+   "visibility": "public"
+  },
+  {
+   "slug": "maintenance",
+   "name": "Maintenance",
+   "description": null,
+   "visibility": "public"
+  },
+  {
+   "slug": "environment",
+   "name": "Environment",
+   "description": null,
+   "visibility": "public"
+  }
+ ],
+ "export_version": "4.3.3",
+ "exported_on": 1683014966397
+}

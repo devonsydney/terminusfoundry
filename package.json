@@ -1,0 +1,21 @@
+{
+  "name": "terminusfoundry",
+  "version": "1.0.0",
+  "private": true,
+  "description": "terminusfoundry.com: company home plus the security and EV guides, one Eleventy site on GitHub Pages",
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "check": "python3 scripts/check-content.py && bash scripts/check-output.sh",
+    "redirects": "node scripts/build-redirects.mjs",
+    "favicons": "node scripts/favicons.mjs"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.7",
+    "@11ty/eleventy-img": "^7.1.1",
+    "@11ty/eleventy-plugin-rss": "^3.1.0",
+    "sharp": "^0.35.5"
+  }
+}

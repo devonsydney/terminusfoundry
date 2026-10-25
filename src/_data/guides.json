@@ -1,0 +1,55 @@
+{
+  "security": {
+    "slug": "security",
+    "source": "sec",
+    "old_host": "sec.terminusfoundry.com",
+    "title": "Safe Living in the Internet Age",
+    "description": "Easily Build Security, Privacy and Convenience Online",
+    "meta_description": "Easily Build Security, Privacy and Convenience Online: A simple lesson plan for beginners to protect themselves and techies help their loved ones be safe.",
+    "cover": "/images/sec/2021/04/markus-spiske-iar-afB0QQw-unsplash-2.jpg",
+    "author": { "slug": "devon", "name": "Devon Boulton-Mills", "avatar": "/images/sec/2021/04/Devon-test.gif", "cover": "/images/sec/2021/04/federico-beccari-ahi73ZN5P0Y-unsplash-3.jpg" },
+    "navigation": [
+      { "slug": "home", "label": "Home", "path": "" },
+      { "slug": "about", "label": "About", "path": "about/" },
+      { "slug": "author", "label": "Author", "path": "author/devon/" }
+    ],
+    "secondary_navigation": [
+      { "slug": "contact", "label": "Contact", "path": "contact/" }
+    ],
+    "tags": [
+      { "slug": "security", "name": "Security" },
+      { "slug": "privacy", "name": "Privacy" }
+    ],
+    "archived": false
+  },
+  "ev": {
+    "slug": "ev",
+    "source": "ev",
+    "old_host": "ev.terminusfoundry.com",
+    "title": "Electric Vehicles",
+    "description": "The Ultimate Guide",
+    "meta_description": "Electric Vehicles - The Ultimate Guide",
+    "cover": "/images/ev/2021/04/israel-palacio-ImcUkZ72oUs-unsplash-4.jpg",
+    "author": { "slug": "devon", "name": "Devon Boulton-Mills", "avatar": "/images/ev/2021/04/Devon-test.gif", "cover": "/images/ev/2021/04/federico-beccari-ahi73ZN5P0Y-unsplash-3-1.jpg" },
+    "navigation": [
+      { "slug": "home", "label": "Home", "path": "" },
+      { "slug": "about", "label": "About", "path": "about/" },
+      { "slug": "author", "label": "Author", "path": "author/devon/" }
+    ],
+    "secondary_navigation": [
+      { "slug": "contact", "label": "Contact", "path": "contact/" }
+    ],
+    "tags": [
+      { "slug": "electric-vehicles", "name": "Electric Vehicles" },
+      { "slug": "sustainable-energy", "name": "Sustainable Energy" },
+      { "slug": "climate-change", "name": "Climate Change" },
+      { "slug": "transportation", "name": "Transportation" },
+      { "slug": "economics", "name": "Economics" },
+      { "slug": "performance", "name": "Performance" },
+      { "slug": "safety", "name": "Safety" },
+      { "slug": "maintenance", "name": "Maintenance" },
+      { "slug": "environment", "name": "Environment" }
+    ],
+    "archived": false
+  }
+}

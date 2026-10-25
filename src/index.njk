@@ -1,0 +1,95 @@
+---
+permalink: /
+title: Terminus Foundry
+---
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Terminus Foundry</title>
+	<meta name="description" content="Terminus Foundry provides AI and security services.">
+	<link rel="canonical" href="{{ site.url }}/">
+{% include "partials/head-icons.njk" %}
+	<meta property="og:site_name" content="Terminus Foundry">
+	<meta property="og:title" content="Terminus Foundry">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="{{ site.url }}/">
+	{# Preloaded so Poppins is ready for the first paint; home.css uses font-display: optional, so the text never swaps fonts. #}
+	<link rel="preload" href="/assets/fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="/assets/fonts/Poppins-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="/assets/css/tokens.css">
+	<link rel="stylesheet" href="/assets/css/home.css">
+	<script src="/assets/js/home.js" defer></script>
+</head>
+<body>
+	<div class="home-layout">
+		{# One header: the sticky left column on wide screens, the sticky top bar on phones, where the logomark replaces the lockup. #}
+		<header class="home-side">
+			<a class="home-mark" href="#top" aria-label="Terminus Foundry, back to top">
+				<picture>
+					<source media="(max-width: 959px)" srcset="/assets/logos/terminus-foundry-logomark-dark.svg" width="612" height="612">
+					<img eleventy:ignore src="/assets/logos/terminus-foundry-wordmark-dark.svg" alt="Terminus Foundry" width="612" height="452">
+				</picture>
+			</a>
+			<nav class="home-nav" aria-label="Sections">
+				<a href="#work">Work</a>
+				<a href="#services">Services</a>
+				<a href="#guides">Guides</a>
+				<a href="#contact">Contact</a>
+			</nav>
+		</header>
+
+		<main class="home" id="top">
+			{# Copy: Devon's own paragraph (2026-10-25), the LinkedIn profile export (2026-10-04) and the Connectd positioning in Devon's Drive (2026-10-04). Devon to review. #}
+			<section id="about">
+				<p class="home-statement"><strong>Terminus Foundry</strong> provides AI and security services. It helps engineering businesses make AI, data and software work, safely.</p>
+				<p class="home-statement">I'm <strong>Devon Boulton-Mills</strong>, a senior technology leader and engineer operating out of the UK. For more than 15 years I have built businesses, led technical teams and delivered enterprise software for clients around the world, with a focus on security. I like solving real problems with people, software and hardware.</p>
+			</section>
+
+			<section id="work">
+				<p class="home-statement">Today I am co-founder and COO of <strong>Decimo</strong>, an engineering-intelligence company in electric propulsion, where I run operations, AI, data and software. Before that, most of my work sat where engineering meets data and software. I led technical programmes for <strong>Arrival</strong>'s 60-engineer electric-vehicle simulation group, across four vehicle platforms. I ran operations on the executive team at <strong>Seabird Technologies</strong>, in electric boat racing. I led data and operations work at <strong>Shell</strong> and <strong>Air Canada</strong>, and co-founded an enterprise software company that grew revenue 600%. I am a professional electrical engineer.</p>
+				{# Where Devon has worked, as a fact of employment, not clients or endorsements: each company's own mark, linked to its website.
+				   Arrival is gone (administration, 2024), so it links to its Wikipedia article. Sources: README.md, "Company logos". #}
+				<ul class="home-logos" aria-label="Where I have worked">
+					<li><a href="https://www.decimo.tech/"><img eleventy:ignore class="logo-decimo" src="/assets/logos/companies/decimo-mark.png" alt="Decimo website" width="178" height="257"></a></li>
+					<li><a href="https://en.wikipedia.org/wiki/Arrival_(company)"><img eleventy:ignore class="logo-arrival" src="/assets/logos/companies/arrival-mark.svg" alt="Arrival on Wikipedia" width="210" height="208"></a></li>
+					<li><a href="https://seabird.tech/"><img eleventy:ignore class="logo-seabird" src="/assets/logos/companies/seabird-mark.png" alt="Seabird Technologies website" width="217" height="114"></a></li>
+					<li><a href="https://www.shell.com/"><img eleventy:ignore class="logo-shell" src="/assets/logos/companies/shell.svg" alt="Shell website" width="150" height="139"></a></li>
+					<li><a href="https://www.aircanada.com/"><img eleventy:ignore class="logo-air-canada" src="/assets/logos/companies/air-canada-mark.svg" alt="Air Canada website" width="129" height="127"></a></li>
+				</ul>
+			</section>
+
+			<section id="services">
+				<p class="home-statement">What I help with:</p>
+				<ul class="home-list">
+					<li><strong>Secure AI adoption.</strong> A practical plan to roll AI tools and agents out across a company, with the right controls on identity, data and access, so people use them and trust them.</li>
+					<li><strong>Data foundations.</strong> Data strategy, architecture and quality, from enterprise data warehouses to engineering and field data.</li>
+					<li><strong>Software and product.</strong> Building and scaling software products, from founding a company to selling to Fortune 500 clients.</li>
+					<li><strong>Operating leadership.</strong> Scaling technical teams, delivery, supply chain and governance in hardware-and-software businesses.</li>
+				</ul>
+			</section>
+
+			<section id="guides">
+				<p class="home-statement">I care about how technology can best benefit society, and about the move to sustainable energy.</p>
+				<p class="home-statement">Back in 2021 I wrote two free guides on those themes; they're a bit out of date, but the core philosophies still stand:</p>
+				<ul class="home-list" aria-label="Guides">
+					<li><a href="/guides/security/">{{ guides.security.title }}</a></li>
+					<li><a href="/guides/ev/">{{ guides.ev.title }}</a></li>
+				</ul>
+			</section>
+
+			<section id="contact">
+				<p class="home-contact">Get in touch on <a href="{{ site.linkedin }}">LinkedIn</a>.</p>
+			</section>
+		</main>
+	</div>
+	{# Sticky to the foot of the screen; the small logomark lines up with the lockup or the text above it. Same wording as the guide footers. #}
+	<footer class="home-foot">
+		<div class="home-foot-inner">
+			<img eleventy:ignore src="/assets/logos/terminus-foundry-logomark-dark.svg" alt="" width="612" height="612">
+			<span>Terminus Foundry &copy; {{ build.year }}</span>
+		</div>
+	</footer>
+</body>
+</html>
