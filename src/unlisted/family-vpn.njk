@@ -1,0 +1,208 @@
+---
+permalink: /guides/security/family-vpn/
+title: Surfshark Family VPN Setup
+eleventyExcludeFromCollections: true
+eleventyExcludeFromSitemap: true
+---
+{#- Unlisted page (Devon, 2026-10-25). Copy and screenshots: the web copy of the family VPN guide from Devon's Surfshark project (CONTENT.md, 2026-10-25).
+    Rules: noindex, nofollow; nothing on the site links here; the only links out are the two app stores. No name, account, plan or Wi-Fi detail.
+    Out of every collection, so it is not in the sitemap, the feeds or the guide index. Sources: README.md, "Unlisted pages". -#}
+{%- set img = "/images/sec/family-vpn/" -%}
+{%- set desc = "Set up the family Surfshark VPN on an iPhone, iPad or Android phone. About 10 minutes. No password needed." -%}
+{%- macro shot(file, caption, alt) -%}
+<figure>
+	<img src="{{ img }}{{ file }}" alt="{{ alt }}" eleventy:widths="320,640,auto" sizes="(min-width: 720px) 27rem, calc(100vw - 2rem)" loading="lazy" decoding="async">
+	<figcaption>{{ caption }}</figcaption>
+</figure>
+{%- endmacro -%}
+{#- A screen with no iPhone screenshot yet: asks iPhone readers to send one, so the gaps fill from the family (Devon, 2026-10-25). -#}
+{%- macro todo(caption) -%}
+<figure class="fv-todo">
+	<div class="fv-todo-box">
+		<p><strong>iPhone picture to come</strong></p>
+		<p>On an iPhone? Take a screenshot of this screen (side button and volume up together) and send it to your family's account holder.</p>
+	</div>
+	<figcaption>{{ caption }}</figcaption>
+</figure>
+{%- endmacro -%}
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{ title }}</title>
+	<meta name="description" content="{{ desc }}">
+	<meta name="robots" content="noindex, nofollow">
+	<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+{% include "partials/head-icons.njk" %}
+	<meta property="og:site_name" content="Terminus Foundry">
+	<meta property="og:title" content="{{ title }}">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+	<meta property="og:description" content="{{ desc }}">
+	<meta property="og:image" content="{{ site.url }}/images/home/terminus-foundry-card.png">
+	<meta property="og:image:type" content="image/png">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:image:alt" content="Terminus Foundry">
+	<meta name="twitter:card" content="summary_large_image">
+	<link rel="preload" href="/assets/fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="/assets/fonts/Poppins-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="/assets/css/tokens.css">
+	<link rel="stylesheet" href="/assets/css/family-vpn.css">
+	<script src="/assets/js/family-vpn.js" defer></script>
+</head>
+<body>
+	<main class="fv" id="top">
+		{#- Wide screens: this mark sticks in the left margin from the top of the page and lines up with the phone switch.
+		    Narrow screens: it stays at the top, and the switch carries its own mark (.fv-bar-mark). #}
+		<img eleventy:ignore class="fv-mark" src="/assets/logos/terminus-foundry-logomark-dark.svg" alt="Terminus Foundry" width="612" height="612">
+		<header class="fv-head">
+			<h1>{{ title }}</h1>
+			<p class="fv-lede">About 10 minutes. No password needed.</p>
+		</header>
+
+		<section class="fv-box" aria-labelledby="before">
+			<h2 id="before">Before You Start: Message Your Family's Account Holder</h2>
+			<p>You can't finish without them. In step 2 your phone shows a code. You send it to them, and they let you in. The code only lasts 5 minutes, so start when they've replied.</p>
+			<p>Someone in your house already set up? They can let you in instead.</p>
+		</section>
+
+		{#- family-vpn.js turns these links into a switch that shows one phone's steps; without it they jump to each section. #}
+		<p class="fv-pick-label" id="pick-label">Choose your phone:</p>
+		<div class="fv-bar">
+			<img eleventy:ignore class="fv-bar-mark" src="/assets/logos/terminus-foundry-logomark-dark.svg" alt="" width="612" height="612">
+			<div class="fv-pick" aria-labelledby="pick-label">
+				<a href="#iphone">iPhone or iPad</a>
+				<a href="#android">Android</a>
+			</div>
+		</div>
+
+		<section class="fv-phone" id="iphone" aria-labelledby="iphone-h">
+			<h2 id="iphone-h">iPhone And iPad</h2>
+
+			<h3>1. Install</h3>
+			<p>Get <strong>Surfshark: VPN Unlimited</strong> from the App Store: <a href="https://apps.apple.com/gb/app/id1391782046" rel="noopener noreferrer">open in App Store</a></p>
+
+			<h3>2. Log In With A Code</h3>
+			<p>Open the app. Tap <strong>Log in</strong>, then <strong>Log in with app</strong> (a). Your screen shows a code (b). Send the code to your family's account holder, or to whoever in your house is already set up. No password needed. The code changes every 5 minutes; send the latest one. Ignore the QR code.</p>
+			<div class="fv-shots">
+				{{ shot("iphone-01-login.png", "a. Log in with app", "Surfshark Log in screen with Log in with app highlighted") }}
+				{{ shot("iphone-02-code.png", "b. Your code", "Surfshark Use a login code screen with the code box highlighted") }}
+			</div>
+
+			<h3>3. Allow The VPN Once</h3>
+			<p>Tap <strong>Quick-connect</strong>. Your iPhone asks to add a VPN configuration: tap <strong>Allow</strong>, then use Face ID or your passcode.</p>
+			<p>If Surfshark offers <strong>Antiscam</strong> (mask your email), you don't need it: tap <strong>Skip</strong>.</p>
+			<div class="fv-shots">
+				{{ todo("Add VPN configuration: Allow") }}
+				{{ shot("iphone-03-antiscam.png", "Skip this", "Surfshark Antiscam offer to mask your email, with Skip highlighted") }}
+			</div>
+			<p>When it says Connected, tap <strong>Disconnect</strong>. Step 4 makes it switch on by itself.</p>
+			<div class="fv-shots">
+				{{ todo("Connected: Disconnect") }}
+			</div>
+
+			<h3>4. Set It And Forget It</h3>
+			<p>Tap <strong>Settings</strong>, then <strong>VPN settings</strong> (a). Tap <strong>Auto connect</strong>, turn it on, then tap <strong>Trusted networks</strong> (b).</p>
+			<div class="fv-shots">
+				{{ shot("iphone-04-vpn-settings.png", "a. VPN settings", "Surfshark Settings with VPN settings highlighted") }}
+				{{ shot("iphone-05-auto-connect.png", "b. Auto connect", "Surfshark Auto connect screen with the Auto connect switch turned on and Trusted networks highlighted") }}
+			</div>
+			<p>At home, add <strong>Cellular network</strong> and <strong>your home Wi-Fi</strong> (c). When asked for location, allow it. If offered, choose <strong>Always</strong>. Surfshark says it needs this to tell when you're on a trusted network.</p>
+			<div class="fv-shots">
+				{{ shot("iphone-06-trusted.png", "c. Your trusted networks", "Surfshark Trusted networks list showing Cellular network and your home Wi-Fi") }}
+				{{ todo("Location: Always") }}
+			</div>
+			<p>Back in VPN settings: turn <strong>CleanWeb</strong> on and leave <strong>Protocol</strong> on <strong>Automatic</strong>.</p>
+			<p>To check: open your iPhone's <strong>Settings</strong> app and tap <strong>VPN</strong>. It should say Surfshark will connect on demand (d).</p>
+			<div class="fv-shots">
+				{{ shot("iphone-07-ios-vpn.png", "d. Connects on demand", "iPhone Settings VPN page saying Surfshark will connect on demand") }}
+			</div>
+
+			<h3>5. Adding Another Device</h3>
+			<p>On the <strong>new device</strong>: do steps 1 and 2 until it shows a code.</p>
+			<p>On a phone <strong>already set up</strong> in your house: <strong>Settings</strong> &gt; <strong>My account</strong> &gt; <strong>Enter login code</strong>. Type the code and tap <strong>Log in</strong>.</p>
+			<div class="fv-shots">
+				{{ shot("iphone-08-my-account.png", "My account", "Surfshark Settings with My account highlighted") }}
+				{{ todo("Type the code, tap Log in") }}
+			</div>
+			<p>Then do steps 3 and 4 on the new device.</p>
+		</section>
+
+		<section class="fv-phone" id="android" aria-labelledby="android-h">
+			<h2 id="android-h">Android</h2>
+
+			<h3>1. Install</h3>
+			<p>Get <strong>Surfshark</strong> from Google Play: <a href="https://play.google.com/store/apps/details?id=com.surfshark.vpnclient.android" rel="noopener noreferrer">open in Google Play</a></p>
+
+			<h3>2. Log In With A Code</h3>
+			<p>Open the app. Tap <strong>Log in</strong>, then <strong>Log in with another device</strong>.</p>
+			<div class="fv-shots">
+				{{ shot("android-01-login.png", "a. Log in", "Surfshark start screen with Log in highlighted") }}
+				{{ shot("android-02-another-device.png", "b. Log in with another device", "Surfshark Log in screen with Log in with another device highlighted") }}
+			</div>
+			<p>Your screen shows a code. Send the code to your family's account holder, or to whoever in your house is already set up. No password needed. The code changes every 5 minutes; send the latest one. Ignore the QR code.</p>
+			<div class="fv-shots">
+				{{ shot("android-03-code.png", "c. Your code", "Surfshark Use a login code screen with the code box highlighted") }}
+			</div>
+
+			<h3>3. Turn The VPN On Once</h3>
+			<p>Once you're let in, Surfshark walks you through setup. Tap <strong>Get started</strong> (a), then <strong>Connect</strong> (b). Android asks to set up a VPN connection: tap <strong>OK</strong> (c).</p>
+			<div class="fv-shots">
+				{{ shot("android-03b-welcome.png", "a. Get started", "Surfshark Welcome screen with Get started highlighted") }}
+				{{ shot("android-03c-connect.png", "b. Connect", "Surfshark Connect button highlighted, above Skip protection") }}
+				{{ shot("android-03d-vpn-request.png", "c. OK", "Android connection request to set up a VPN, with OK highlighted") }}
+				{{ shot("android-03e-connected.png", "d. Connected", "Surfshark VPN is connected screen, with VPN shown as Active") }}
+			</div>
+			<p>You don't need <strong>Alternative ID</strong>; skip it. "Not active" next to it is fine: tap <strong>Done</strong> (e). If asked to let Surfshark run in the background, tap <strong>Next</strong>, then <strong>OK</strong> (f).</p>
+			<div class="fv-shots">
+				{{ shot("android-03f-not-active.png", "e. This is fine", "Surfshark Some protections aren't active screen, with Alternative ID shown as Not active") }}
+				{{ shot("android-03g-battery.png", "f. Next, then OK", "Surfshark asks to run in the background with Next highlighted, then Android asks to stop optimising battery usage with OK highlighted") }}
+			</div>
+			<p>On the main screen, tap <strong>Disconnect</strong> for now. Step 4 makes it switch on by itself.</p>
+
+			<h3>4. Set It And Forget It</h3>
+			<p>Go to <strong>Settings</strong> &gt; <strong>VPN settings</strong>. Turn on <strong>Auto-connect</strong> (1) and <strong>CleanWeb</strong> (3), then tap <strong>Preferences</strong> (2). Under Trusted networks, tap <strong>Allow location access</strong>. Surfshark says it needs this to tell when you're on a trusted network.</p>
+			<div class="fv-shots">
+				{{ shot("android-04-vpn-settings.png", "a. VPN settings", "Surfshark VPN settings with Auto-connect (1), Preferences (2) and CleanWeb (3) highlighted") }}
+				{{ shot("android-05-allow-location.png", "b. Preferences", "Surfshark Trusted networks with Allow location access highlighted") }}
+			</div>
+			<p>Android opens the app's settings. Tap <strong>Permissions</strong>, then <strong>Location</strong>, then <strong>Allow all the time</strong>. Go back to Surfshark.</p>
+			<div class="fv-shots">
+				{{ shot("android-06-permissions.png", "c. Permissions", "Android app settings with Permissions highlighted") }}
+				{{ shot("android-07-location.png", "d. Location", "Android app permissions with Location highlighted") }}
+				{{ shot("android-08-all-the-time.png", "e. Allow all the time", "Android location access for the app with Allow all the time selected") }}
+			</div>
+			<p>At home, add <strong>Mobile network</strong> and <strong>your home Wi-Fi</strong> to Trusted networks (f). Leave <strong>Protocol</strong> on <strong>Automatic</strong>.</p>
+			<div class="fv-shots">
+				{{ shot("android-09-trusted.png", "f. Your trusted networks", "Surfshark Trusted networks list showing Mobile network and your home Wi-Fi") }}
+			</div>
+
+			<h3>5. Adding Another Device</h3>
+			<p>On the <strong>new device</strong>: do steps 1 and 2 until it shows a code.</p>
+			<p>On a phone <strong>already set up</strong> in your house: <strong>Settings</strong> &gt; <strong>My account</strong> &gt; <strong>Enter login code</strong>. Type the code and tap <strong>Log in</strong>.</p>
+			<div class="fv-shots">
+				{{ shot("android-10-my-account.png", "a. My account", "Surfshark My account with Enter login code highlighted") }}
+				{{ shot("android-11-enter-code.png", "b. Type the code, tap Log in", "Surfshark Enter login code box and Log in button highlighted") }}
+			</div>
+			<p>Then do steps 3 and 4 on the new device.</p>
+		</section>
+
+		<section class="fv-box fv-rule" aria-labelledby="rule">
+			<h2 id="rule">The One Code Rule</h2>
+			<p>Only send the code shown <strong>inside the Surfshark app</strong>, to your family's account holder or whoever is helping you set up. Never send anyone a code that arrives by text or email. Whoever asks for one is a scammer.</p>
+		</section>
+
+		<section aria-labelledby="good">
+			<h2 id="good">Good To Know</h2>
+			<ul>
+				<li>Café or hotel Wi-Fi login page won't open? Open Surfshark, tap <strong>Disconnect</strong>, log in to the Wi-Fi, then connect again.</li>
+				<li>At someone else's house the VPN switches on. That's fine; leave it.</li>
+				<li>Nobody else on the family account can see what you browse. Surfshark says it keeps no record of it.</li>
+			</ul>
+		</section>
+	</main>
+	<footer class="fv-foot">Terminus Foundry &copy; {{ build.year }}</footer>
+</body>
+</html>

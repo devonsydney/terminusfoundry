@@ -1,0 +1,122 @@
+/* Unlisted family VPN page: dark expression of the brand (brand-terminus-foundry 1.2.0), phone first. Tokens come from tokens.css. */
+@font-face { font-family: Poppins; font-style: normal; font-weight: 400; font-display: optional; src: url("../fonts/Poppins-Regular.woff2") format("woff2"); }
+@font-face { font-family: Poppins; font-style: normal; font-weight: 600; font-display: optional; src: url("../fonts/Poppins-SemiBold.woff2") format("woff2"); }
+* { box-sizing: border-box; }
+html { background: var(--tf-bg); scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--tf-bg);
+  color: var(--tf-text);
+  font-family: var(--tf-font-body);
+  font-weight: var(--tf-weight-body);
+  font-size: var(--tf-body-px);
+  line-height: var(--tf-line-height);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--tf-link); text-decoration: underline; text-underline-offset: 0.15em; }
+a:hover, a:focus { color: var(--tf-text); }
+strong { font-weight: 600; }
+/* Text stays at a readable 40rem; the screenshot grid may use the full 56rem so two side by side stay large enough to read. */
+.fv { width: min(100% - 2rem, 56rem); margin: 0 auto; padding: 1.5rem 0 3rem; }
+.fv p, .fv ul, .fv h1, .fv h2, .fv h3, .fv-box { max-width: 40rem; }
+.fv h1, .fv h2, .fv h3 { font-family: var(--tf-font-heading); font-weight: var(--tf-weight-heading); line-height: 1.25; }
+.fv h1 { font-size: clamp(1.5rem, 5vw, 2rem); margin: 1rem 0 0.25rem; }
+.fv h2 { font-size: 1.375rem; margin: 2.5rem 0 0.75rem; }
+.fv h3 { font-size: 1.125rem; margin: 2rem 0 0.5rem; }
+.fv p { margin: 0 0 1rem; }
+.fv ul { padding-left: 1.25rem; }
+.fv li { margin: 0 0 0.5rem; }
+.fv-mark { display: block; width: 3rem; height: auto; margin-left: calc(-0.149 * 3rem); }
+.fv-lede { color: var(--tf-text-muted); }
+/* Boxed notes: the first-step note and the one code rule. */
+.fv-box { margin: 1.5rem 0; padding: 1rem 1.25rem; background: var(--tf-panel-flat); border-radius: 0.5rem; }
+.fv-box h2 { margin-top: 0; }
+.fv-box p:last-child { margin-bottom: 0; }
+/* Alert Red at 18 px or larger only on #202020 (BRAND.md): the heading is 22 px, the border a mark. */
+.fv-rule { border: 2px solid var(--tf-accent); }
+.fv-rule h2 { color: var(--tf-accent); }
+/* Phone picker: the logomark and two large targets in a bar that stays at the top of the screen. family-vpn.js marks
+   the chosen one aria-selected; it turns solid white with a tick, so the page always shows which phone's steps are on screen.
+   The buttons fill the column, as wide as the screenshots; the bar's shadows paint the ground and a bottom rule across the window. */
+.fv-pick-label { margin: 1.5rem 0 0.5rem; color: var(--tf-text-muted); }
+.fv-bar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  background: var(--tf-bg);
+  box-shadow: 0 0 0 100vmax var(--tf-bg), 0 1px 0 100vmax var(--tf-rule-flat);
+  clip-path: inset(0 -100vmax -1px);
+}
+/* 2.875rem box: the visible mark is 32 px, the brand minimum (the SVG has 14.9% space on each side). */
+.fv-bar-mark { flex: none; width: 2.875rem; height: auto; margin: 0 calc(-0.149 * 2.875rem); transition: opacity 0.2s; }
+/* family-vpn.js sets data-stuck; without it the mark always shows. */
+.fv-bar[data-stuck="false"] .fv-bar-mark { opacity: 0; }
+@media (prefers-reduced-motion: reduce) { .fv-bar-mark { transition: none; } }
+.fv-pick {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+/* Narrow phones: keeps "✓ iPhone or iPad" on one line beside the mark from about 360 px wide. */
+@media (max-width: 30rem) { .fv-pick { gap: 0.5rem; } .fv-pick a { padding-inline: 0.25rem; font-size: 0.9375rem; } }
+/* Wide screens: one mark in the left margin, from the top of the page down. It takes no space in the column, and once the
+   switch reaches the top of the screen it sits level with the buttons (bar 70 px high, mark 46 px, so 12 px above and below). */
+@media (min-width: 72rem) {
+  .fv-mark {
+    position: sticky;
+    top: 0.75rem;
+    z-index: 6;
+    width: 2.875rem;
+    /* Centred on the title's first line: h1 margin 1rem plus half its 2.5rem line, less half the mark. The bottom margin
+       cancels the top one and the mark's height, so the title does not move. */
+    margin: 0.8125rem 0 -3.6875rem calc(-2.875rem - 0.75rem + 0.149 * 2.875rem);
+  }
+  .fv-bar-mark { display: none; }
+}
+.fv-pick a {
+  display: block;
+  padding: 0.85rem 0.5rem;
+  border: 1px solid var(--tf-rule-flat);
+  border-radius: 0.5rem;
+  color: var(--tf-text);
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+.fv-pick a:hover, .fv-pick a:focus { border-color: var(--tf-link); color: var(--tf-text); }
+.fv-pick a:focus-visible { outline: 2px solid var(--tf-link); outline-offset: 2px; }
+.fv-pick a[aria-selected="true"] { background: var(--tf-text); border-color: var(--tf-text); color: var(--tf-bg); }
+.fv-pick a[aria-selected="true"]::before { content: "\2713\00a0"; }
+.fv-pick a[aria-selected="false"] { color: var(--tf-text-muted); }
+.fv-pick a[aria-selected="false"]:hover, .fv-pick a[aria-selected="false"]:focus { color: var(--tf-text); }
+/* Clears the sticky picker when a section is scrolled to. */
+.fv-phone { scroll-margin-top: 5rem; padding-top: 0.5rem; }
+.fv-phone > h2 { padding-bottom: 0.5rem; border-bottom: 1px solid var(--tf-rule-flat); }
+/* Screenshots: one per row on phones, two side by side from 720 px. */
+.fv-shots { display: grid; gap: 1.25rem; margin: 1rem 0 1.5rem; }
+@media (min-width: 720px) { .fv-shots { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; } }
+.fv-shots figure { margin: 0; }
+.fv-shots img { display: block; width: 100%; height: auto; border: 1px solid var(--tf-rule-flat); border-radius: 0.5rem; }
+/* Placeholder for an iPhone screenshot still to come: same frame as a screenshot, dashed. */
+.fv-todo-box { display: flex; flex-direction: column; justify-content: center; min-height: 12rem; padding: 1.25rem; border: 1px dashed var(--tf-text-muted); border-radius: 0.5rem; color: var(--tf-text-muted); text-align: center; }
+.fv-todo-box p { margin: 0 auto 0.5rem; }
+.fv-todo-box p:last-child { margin-bottom: 0; }
+.fv-todo-box strong { color: var(--tf-text); }
+.fv-shots figcaption { margin-top: 0.4rem; color: var(--tf-text-muted); font-size: 0.9375rem; }
+/* Footer: stuck to the bottom of the screen and full width; the side padding keeps its text in line with the column. */
+.fv-foot {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  padding: 0.75rem calc((100% - min(100% - 2rem, 56rem)) / 2);
+  background: var(--tf-bg);
+  border-top: 1px solid var(--tf-rule-flat);
+  color: var(--tf-text-muted);
+  font-size: 0.8125rem;
+}
