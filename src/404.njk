@@ -1,0 +1,30 @@
+---
+permalink: /404.html
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Page not found | Terminus Foundry</title>
+	<meta name="robots" content="noindex">
+{% include "partials/head-icons.njk" %}
+	<link rel="stylesheet" href="/assets/css/tokens.css">
+	<link rel="stylesheet" href="/assets/css/home.css">
+</head>
+<body>
+	<main class="home">
+		<header class="home-mark">
+			<a href="/"><img eleventy:ignore src="/assets/logos/terminus-foundry-wordmark-dark.svg" alt="Terminus Foundry" width="612" height="452"></a>
+		</header>
+		<h1 class="home-heading">Page not found</h1>
+		<p class="home-statement">There is nothing at this address. The guides moved to new paths in 2026.</p>
+		<nav class="home-links" aria-label="Where to go">
+			<a href="/">Home</a>
+			<a href="/guides/security/">{{ guides.security.title }}</a>
+			<a href="/guides/ev/">{{ guides.ev.title }}</a>
+		</nav>
+	</main>
+</body>
+</html>

@@ -1,0 +1,79 @@
+{%- set g = guides[guide] -%}
+{%- set guideUrl = "/guides/" + g.slug + "/" -%}
+{%- set pageTitle = (title + " | " + g.title) if title else (g.title + " | " + g.description) -%}
+{%- set desc = (description or excerpt or g.meta_description) | stripTags | truncateWords(40) -%}
+{%- set ogImage = feature_image or g.cover -%}
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{ pageTitle }}</title>
+	<meta name="description" content="{{ desc }}">
+	<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+	{%- if noindex %}
+	<meta name="robots" content="noindex">
+	{%- endif %}
+	<link rel="alternate" type="application/rss+xml" title="{{ g.title }}" href="{{ guideUrl }}rss.xml">
+{% include "partials/head-icons.njk" %}
+	<meta property="og:site_name" content="{{ g.title }}">
+	<meta property="og:title" content="{{ title or g.title }}">
+	<meta property="og:description" content="{{ desc }}">
+	<meta property="og:type" content="{{ "article" if layout == "post" else "website" }}">
+	<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+	<meta property="og:image" content="{{ ogImage if ogImage.startsWith("http") else site.url + ogImage }}">
+	<link rel="preload" href="/assets/fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="/assets/fonts/Poppins-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="/assets/css/tokens.css">
+	<link rel="stylesheet" href="/assets/css/guide.css">
+	<script>
+		(function () {
+			try {
+				var t = localStorage.getItem("tf_theme");
+				if (t === "light" || t === "dark") { document.documentElement.setAttribute("data-theme", t); }
+			} catch (e) {}
+		})();
+	</script>
+</head>
+<body class="{{ bodyClass }}">
+	<div class="nav-header">
+		<nav class="nav-wrapper" aria-label="Main">
+			<span class="logo">
+				<a href="/" title="Terminus Foundry"><img eleventy:ignore class="nav-logo nav-logo-dark" src="/assets/logos/terminus-foundry-logomark-dark-600.png" alt="Terminus Foundry"><img eleventy:ignore class="nav-logo nav-logo-light" src="/assets/logos/terminus-foundry-logomark-light-600.png" alt="Terminus Foundry"></a>
+			</span>
+			<ul>
+			{%- for item in g.navigation %}
+				{%- set href = guideUrl + item.path %}
+				<li class="nav-{{ item.slug }}{% if page.url == href %} active{% endif %}"><a href="{{ href }}"><span>{{ g.title if item.slug == "home" else item.label }}</span></a></li>
+			{%- endfor %}
+			</ul>
+		</nav>
+		<div class="nav-wrapper-control">
+			<div class="inner">
+				<a class="nav-menu" role="button" tabindex="0"><i class="icon icon-menu" aria-hidden="true"></i>Menu</a>
+			</div>
+		</div>
+	</div>
+	<div class="nav-close" role="button" aria-label="Close menu" tabindex="0"></div>
+
+	<section class="page-wrapper">
+{%- if g.archived %}
+{% include "partials/archive-notice.njk" %}
+{%- endif %}
+{{ content | safe }}
+		<div class="nav-footer">
+			<nav class="nav-wrapper" aria-label="Footer">
+				<span class="nav-copy">Terminus Foundry &copy; {{ build.year }} <a class="nav-rss" title="RSS" href="{{ guideUrl }}rss.xml"><i class="icon icon-rss" aria-hidden="true"></i></a></span>
+				<ul>
+				{%- for item in g.secondary_navigation %}
+					{%- set href = guideUrl + item.path %}
+					<li class="nav-{{ item.slug }}{% if page.url == href %} active{% endif %}"><a href="{{ href }}"><span>{{ item.label }}</span></a></li>
+				{%- endfor %}
+				</ul>
+				<span class="nav-credits"><a class="menu-item js-theme" href="#" role="button" data-dark="Dark" data-light="Light"><span class="theme-icon"></span><span class="theme-text">Dark</span></a></span>
+			</nav>
+		</div>
+	</section>
+	<script src="/assets/js/guide.js"></script>
+</body>
+</html>

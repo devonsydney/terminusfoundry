@@ -1,0 +1,57 @@
+{
+ "site": "sec",
+ "title": "Safe Living in the Internet Age",
+ "description": "Easily Build Security, Privacy and Convenience Online",
+ "accent_color": "#a4238f",
+ "navigation": [
+  {
+   "label": "Home",
+   "url": "/"
+  },
+  {
+   "label": "About",
+   "url": "/about/"
+  },
+  {
+   "label": "Author",
+   "url": "/author/devon/"
+  }
+ ],
+ "secondary_navigation": [
+  {
+   "label": "Contact",
+   "url": "/contact/"
+  },
+  {
+   "label": "TF",
+   "url": "/tf/"
+  },
+  {
+   "label": "Contribute →",
+   "url": "/contribute/"
+  }
+ ],
+ "cover_image": "/images/sec/2021/04/markus-spiske-iar-afB0QQw-unsplash-2.jpg",
+ "icon": "/images/sec/2021/04/publication_icon.png",
+ "logo": "/images/sec/2021/04/TF-ID-Lockup-Reverse.png",
+ "meta_title": "Safe Living in the Internet Age",
+ "meta_description": "Easily Build Security, Privacy and Convenience Online: A simple lesson plan for beginners to protect themselves and techies help their loved ones be safe.",
+ "timezone": "America/Los_Angeles",
+ "lang": "en",
+ "tags": [
+  {
+   "slug": "security",
+   "name": "Security",
+   "description": null,
+   "visibility": "public"
+  },
+  {
+   "slug": "privacy",
+   "name": "Privacy",
+   "description": null,
+   "visibility": "public"
+  }
+ ],
+ "export_version": "4.3.2",
+ "exported_on": 1683015028987
+}

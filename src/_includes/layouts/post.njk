@@ -1,0 +1,85 @@
+---
+layout: layouts/guide.njk
+bodyClass: post-template
+---
+{%- set g = guides[guide] -%}
+{%- set posts = collections[g.slug + "Posts"] -%}
+{%- set primaryTag = g.tags | findTag(tags) -%}
+{%- set published = page.date | isoDate -%}
+<div class="progress-container">
+	<span class="progress-bar"></span>
+</div>
+
+<header class="post-header{% if feature_image %} has-cover{% endif %}">
+	<div class="inner">
+		<span class="post-info">
+			<span class="post-type">Article</span>
+			{%- if primaryTag %}
+			<span class="post-count">{{ primaryTag.name }}</span>
+			{%- endif %}
+		</span>
+		<h1 class="post-title">{{ title }}</h1>
+		<div class="post-meta">
+			<div class="post-meta-avatars"><figure class="post-meta-avatar avatar"><a href="/guides/{{ g.slug }}/author/{{ g.author.slug }}/" class="author-avatar"><img eleventy:ignore class="author-profile-image" src="{{ g.author.avatar }}" alt="{{ g.author.name }}" width="800" height="800"></a></figure></div>
+			<h4 class="post-meta-author"><a href="/guides/{{ g.slug }}/author/{{ g.author.slug }}/">{{ g.author.name }}</a></h4>
+			<span class="post-meta-dates">Published <time datetime="{{ published }}">{{ published }}</time>{% if updated and updated != published %} &bull; Updated <time datetime="{{ updated }}">{{ updated }}</time>{% endif %} &bull; {{ content | readingTime }}</span>
+		</div>
+		{%- if feature_image %}
+		<div class="post-cover cover">
+			{{ feature_image | coverImg(title) | safe }}
+		</div>
+		{%- endif %}
+	</div>
+</header>
+
+<main class="content" role="main">
+	<article class="post">
+		<div class="inner">
+
+			<section class="post-content">
+<!-- content:start -->
+{{ content | guideLinks(guide) | safe }}
+<!-- content:end -->
+			</section>
+
+			<section class="post-footer">
+				{%- if tags and tags.length %}
+				<aside class="post-tags">
+					<span class="post-info-label">Topic</span>
+					{%- for t in tags %}
+					{%- set tag = g.tags | findTag(t) %}
+					<a href="/guides/{{ g.slug }}/tag/{{ t }}/">{{ tag.name if tag else t }}</a>
+					{%- endfor %}
+				</aside>
+				{%- endif %}
+			</section>
+
+			<aside class="post-nav">
+				{%- set older = posts | getPreviousCollectionItem %}
+				{%- set newer = posts | getNextCollectionItem %}
+				{%- if older %}
+				<a class="post-nav-next" href="{{ older.url }}">
+					<section class="post-nav-teaser">
+						<i class="icon icon-arrow-left" aria-label="Previous post"></i>
+						<h2 class="post-nav-title">{{ older.data.title }}</h2>
+						<p class="post-nav-excerpt">{{ older.data.excerpt | truncateWords(12) }}&hellip;</p>
+						<p class="post-nav-meta"><time datetime="{{ older.date | isoDate }}">{{ older.date | isoDate }}</time></p>
+					</section>
+				</a>
+				{%- endif %}
+				{%- if newer %}
+				<a class="post-nav-prev" href="{{ newer.url }}">
+					<section class="post-nav-teaser">
+						<i class="icon icon-arrow-right" aria-label="Next post"></i>
+						<h2 class="post-nav-title">{{ newer.data.title }}</h2>
+						<p class="post-nav-excerpt">{{ newer.data.excerpt | truncateWords(12) }}&hellip;</p>
+						<p class="post-nav-meta"><time datetime="{{ newer.date | isoDate }}">{{ newer.date | isoDate }}</time></p>
+					</section>
+				</a>
+				{%- endif %}
+				<div class="clear"></div>
+			</aside>
+
+		</div>
+	</article>
+</main>

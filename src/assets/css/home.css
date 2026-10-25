@@ -1,0 +1,118 @@
+/* Company home: dark expression of the brand (brand-terminus-foundry 1.1.1), sive.rs-plain. Tokens come from tokens.css. */
+/* font-display: optional with the preloads in the page head: Poppins shows from the first paint, or, on a slow first visit, the fallback stays for that page. Either way the text never swaps. */
+@font-face { font-family: Poppins; font-style: normal; font-weight: 400; font-display: optional; src: url("../fonts/Poppins-Regular.woff2") format("woff2"); }
+@font-face { font-family: Poppins; font-style: normal; font-weight: 500; font-display: optional; src: url("../fonts/Poppins-Medium.woff2") format("woff2"); }
+@font-face { font-family: Poppins; font-style: normal; font-weight: 600; font-display: optional; src: url("../fonts/Poppins-SemiBold.woff2") format("woff2"); }
+* { box-sizing: border-box; }
+html { background: var(--tf-bg); }
+/* A column the height of the window: on a short page the footer sits at the bottom of the window, on a long one it sticks there. */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  background: var(--tf-bg);
+  color: var(--tf-text);
+  font-family: var(--tf-font-body);
+  font-weight: var(--tf-weight-body);
+  font-size: var(--tf-body-px);
+  line-height: var(--tf-line-height);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--tf-link); text-decoration: underline; text-underline-offset: 0.15em; }
+a:hover, a:focus { color: var(--tf-text); }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+/* Phones and tablets: a slim sticky top bar with the logomark and the section links. */
+.home-side {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--tf-bg);
+  border-bottom: 1px solid var(--tf-rule-flat);
+}
+.home-mark { display: block; flex: none; }
+/* The drawing starts 14.9% (logomark) or 15.8% (lockup) into its SVG; the negative margin lines it up with the text below. */
+.home-mark img { display: block; width: 2.75rem; height: auto; margin-left: calc(-0.149 * 2.75rem); }
+/* home.js adds .home-fits when the whole page fits on screen: the section links are then not needed. */
+.home-fits .home-nav { display: none; }
+.home-nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.25rem 1rem; font-size: 0.875rem; }
+.home-nav a { color: var(--tf-text-muted); text-decoration: none; }
+.home-nav a:hover, .home-nav a:focus, .home-nav a[aria-current] { color: var(--tf-text); }
+.home-nav a[aria-current] { text-decoration: underline; text-decoration-color: var(--tf-accent); text-underline-offset: 0.3em; }
+.home-layout { flex: 1 0 auto; }
+.home {
+  width: min(100% - 2rem, 40rem);
+  margin: 0 auto;
+  padding: 2.5rem 0 3rem;
+}
+.home section { scroll-margin-top: 5rem; }
+/* Wide screens: the lockup and the links stay in a sticky left column.
+   The lockup is never narrower than 160 px (BRAND.md); clear space is in the SVG's own margins. */
+@media (min-width: 960px) {
+  .home-layout { display: grid; grid-template-columns: 13rem minmax(0, 40rem); gap: 4rem; justify-content: center; }
+  .home-side {
+    align-self: start;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2rem;
+    padding: 4rem 0 0;
+    border-bottom: 0;
+    background: none;
+  }
+  .home-mark img { width: 200px; margin-left: calc(-0.158 * 200px); }
+  .home-nav { flex-direction: column; justify-content: flex-start; gap: 0.5rem; font-size: 1rem; }
+  .home { width: auto; margin: 0; padding-top: 4rem; }
+  .home section { scroll-margin-top: 2rem; }
+}
+.home-heading { font-family: var(--tf-font-heading); font-weight: var(--tf-weight-heading); font-size: clamp(1.5rem, 4vw, 2rem); line-height: 1.2; margin: 0 0 1rem; }
+.home-statement { margin: 0 0 1.25rem; max-width: 68ch; }
+.home-list { margin: 0 0 2rem; padding-left: 1.25rem; max-width: 68ch; }
+.home-list li { margin: 0 0 0.5rem; }
+.home-statement strong, .home-list strong { font-weight: 600; }
+/* Devon's portrait, floated right: on phones at the top of the section, from 600 px beside the paragraph that
+   introduces Devon. The page holds two copies; each width shows one. The section grows to hold the float. */
+#about { display: flow-root; }
+.home-photo { float: right; height: auto; border-radius: 0.25rem; }
+.home-photo-phone { width: 9rem; margin: 0.3rem 0 0.5rem 1rem; }
+.home-photo-wide { display: none; width: 9rem; margin: 0.3rem 0 0.75rem 1.5rem; }
+@media (min-width: 600px) { .home-photo-phone { display: none; } .home-photo-wide { display: block; } }
+.home-placeholder { color: var(--tf-text-muted); font-style: italic; }
+/* Used by the 404 page. */
+.home-links { display: flex; flex-direction: column; gap: 0.5rem; margin: 0 0 1.25rem; }
+.home-contact { margin: 2rem 0 0; color: var(--tf-text-muted); }
+/* Where Devon has worked: each company's own mark, in one colour, the muted white; heights set by eye so each mark carries similar weight. */
+.home-logos { list-style: none; margin: 2.5rem 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.25rem 2.5rem; }
+.home-logos a { display: block; }
+.home-logos img { display: block; width: auto; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.15s; }
+.home-logos a:hover img, .home-logos a:focus img { opacity: 1; }
+.logo-decimo { height: 2rem; }
+.logo-arrival { height: 1.75rem; }
+.logo-seabird { height: 1.25rem; }
+.logo-shell { height: 2rem; }
+.logo-air-canada { height: 2rem; }
+/* Copyright footer, sticky to the foot of the screen, on the same column grid as the page. */
+.home-foot {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  background: var(--tf-bg);
+  border-top: 1px solid var(--tf-rule-flat);
+  color: var(--tf-text-muted);
+  font-size: 0.8125rem;
+}
+.home-foot-inner { display: flex; align-items: center; gap: 0.5rem; width: min(100% - 2rem, 40rem); margin: 0 auto; padding: 0.4rem 0; }
+.home-foot-link { display: block; margin-left: auto; color: var(--tf-text-muted); }
+.home-foot-link svg { display: block; width: 1.1rem; height: 1.1rem; }
+.home-foot-link:hover, .home-foot-link:focus { color: var(--tf-text); }
+.home-foot-inner img { display: block; width: 1.5rem; height: auto; margin-left: calc(-0.149 * 1.5rem); }
+@media (min-width: 960px) {
+  .home-foot-inner { width: calc(13rem + 4rem + 40rem); }
+}
