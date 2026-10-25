@@ -41,6 +41,7 @@ The build has no warnings when it is healthy. `npm run check` exits non-zero on 
 | `src/images/<sec|ev>/` | Images extracted from the Ghost backups, served at `/images/...` |
 | `src/static/` | Files served as-is at `/static/` (see the PDF note below) |
 | `src/family/` | Reserved for the unlinked family area; ignored by the build. `README.md` there describes the StatiCrypt plan |
+| `src/unlisted/`, `src/assets/css/family-vpn.css`, `src/images/sec/family-vpn/` | Unlisted pages: public, but `noindex, nofollow`, out of every collection, sitemap and feed, and linked from nowhere on the site. `family-vpn.njk` is the family VPN setup guide (2026-10-25), copy and screenshots from Devon's Surfshark project; it names no person, account or network |
 | `redirects/sec/`, `redirects/ev/` | Meta-refresh stubs for every old URL, each with its own `CNAME`, for two small repositories to be created later |
 | `scripts/` | `check-content.py`, `check-output.sh`, `build-redirects.mjs`, `favicons.mjs` |
 | `tools/ghost-export/` | The pre-work conversion scripts (`ghost_to_content.py`, `extract_images.py`) |
