@@ -59,6 +59,14 @@ The build has no warnings when it is healthy. `npm run check` exits non-zero on 
 | `shell.svg` | English Wikipedia, `File:Shell logo.svg` (non-free logo) | Kept the red outline path only, so the pecten reads as line art |
 | `air-canada-mark.svg` | Wikimedia Commons, `File:Air Canada logo.svg` (public domain) | Kept the maple-leaf rondel path only |
 
+### Portrait
+
+`src/images/home/devon-boulton-mills.jpg` is Devon's studio portrait, supplied by Devon on 2026-10-25 as an 800 x 800 PNG. It was made greyscale, resized to 480 x 480 (about 3x its largest display size of 9rem) and saved fresh as a progressive JPEG at quality 84 with Pillow, so it carries no EXIF, ICC or other metadata (about 23 KB). The page holds two copies of it, and each width shows one: on phones it floats top right of the first paragraph at 9rem; from 600 px it floats right of the paragraph that introduces Devon at 9rem.
+
+### LinkedIn mark
+
+The footer's LinkedIn link is the LinkedIn "in" mark, inline in `src/index.njk`: the `linkedin` path from Simple Icons (CC0), drawn in the muted text colour and brightened on hover. The trademark stays LinkedIn's.
+
 ### Fonts
 
 Poppins loads with `font-display: optional`, and the home and guide layouts preload the Regular and SemiBold files. The text never swaps fonts: Poppins shows from the first paint, or, on a slow first visit, the fallback stays for that page. The fonts are WOFF2, about 51 KB each, converted on 2026-10-25 from the brand's Poppins TTF files (about 160 KB each) with fonttools 4.67.0 and no subsetting. To convert again: `python3 -c "from fontTools.ttLib import TTFont; f = TTFont('Poppins-Regular.ttf'); f.flavor = 'woff2'; f.save('Poppins-Regular.woff2')"` with `fonttools` and `brotli` installed.

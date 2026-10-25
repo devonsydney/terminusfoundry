@@ -77,12 +77,19 @@ html { scroll-behavior: smooth; }
 .home-list { margin: 0 0 2rem; padding-left: 1.25rem; max-width: 68ch; }
 .home-list li { margin: 0 0 0.5rem; }
 .home-statement strong, .home-list strong { font-weight: 600; }
+/* Devon's portrait, floated right: on phones at the top of the section, from 600 px beside the paragraph that
+   introduces Devon. The page holds two copies; each width shows one. The section grows to hold the float. */
+#about { display: flow-root; }
+.home-photo { float: right; height: auto; border-radius: 0.25rem; }
+.home-photo-phone { width: 9rem; margin: 0.3rem 0 0.5rem 1rem; }
+.home-photo-wide { display: none; width: 9rem; margin: 0.3rem 0 0.75rem 1.5rem; }
+@media (min-width: 600px) { .home-photo-phone { display: none; } .home-photo-wide { display: block; } }
 .home-placeholder { color: var(--tf-text-muted); font-style: italic; }
 /* Used by the 404 page. */
 .home-links { display: flex; flex-direction: column; gap: 0.5rem; margin: 0 0 1.25rem; }
 .home-contact { margin: 2rem 0 0; color: var(--tf-text-muted); }
 /* Where Devon has worked: each company's own mark, in one colour, the muted white; heights set by eye so each mark carries similar weight. */
-.home-logos { list-style: none; margin: 0.5rem 0 2.5rem; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.25rem 2.5rem; }
+.home-logos { list-style: none; margin: 2.5rem 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.25rem 2.5rem; }
 .home-logos a { display: block; }
 .home-logos img { display: block; width: auto; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.15s; }
 .home-logos a:hover img, .home-logos a:focus img { opacity: 1; }
@@ -102,6 +109,9 @@ html { scroll-behavior: smooth; }
   font-size: 0.8125rem;
 }
 .home-foot-inner { display: flex; align-items: center; gap: 0.5rem; width: min(100% - 2rem, 40rem); margin: 0 auto; padding: 0.4rem 0; }
+.home-foot-link { display: block; margin-left: auto; color: var(--tf-text-muted); }
+.home-foot-link svg { display: block; width: 1.1rem; height: 1.1rem; }
+.home-foot-link:hover, .home-foot-link:focus { color: var(--tf-text); }
 .home-foot-inner img { display: block; width: 1.5rem; height: auto; margin-left: calc(-0.149 * 1.5rem); }
 @media (min-width: 960px) {
   .home-foot-inner { width: calc(13rem + 4rem + 40rem); }
